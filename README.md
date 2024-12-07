@@ -1,3 +1,11 @@
+UBB-FSEGA IE - Proiect Testarea produselor software
+
+Componenta echipei:
+Linca David-Alexandru (Project Manager)
+Mare Bogdan-Rareș (Programator)
+Kish Andrei-Cezar (Programator)
+Lăzăroiu Robert-Codruț (Tester)
+
 # Salary Calculator
 
 Acest proiect este un calculator pentru salariul net și brut, dezvoltat cu Python și Flask.
