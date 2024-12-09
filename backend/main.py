@@ -1,6 +1,4 @@
-# backend/main.py
-
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, jsonify
 from net_salary import calculate_net_salary
 from gross_salary import calculate_gross_salary
 
@@ -10,17 +8,14 @@ app = Flask(__name__, template_folder='../templates')
 
 @app.route('/')
 def index():
-    """
-    Redă pagina principală HTML.
-    """
+    # Redă pagina principală HTML
     return render_template('index.html')
 
 
+# Endpoint pentru calculatorul simplu (HTML)
 @app.route('/calculate_simple', methods=['POST'])
 def calculate_simple():
-    """
-    Procesează calculul pentru calculatorul simplu.
-    """
+    # Procesează calculul pentru calculatorul simplu (formular HTML)
     try:
         salary = float(request.form.get('salary'))
         calculation_type = request.form.get('type')
@@ -50,11 +45,10 @@ def calculate_simple():
         return render_template('index.html', result=f"Eroare: {str(e)}")
 
 
+# Endpoint pentru calculatorul avansat (HTML)
 @app.route('/calculate_advanced', methods=['POST'])
 def calculate_advanced():
-    """
-    Procesează calculul pentru calculatorul avansat.
-    """
+    # Procesează calculul pentru calculatorul avansat (formular HTML)
     try:
         full_salary = float(request.form.get('full_salary'))
         meal_tickets = int(request.form.get('meal_tickets') or 0)
@@ -85,6 +79,66 @@ def calculate_advanced():
         return render_template('index.html', result=f"{net_salary:.2f}", steps=steps)
     except Exception as e:
         return render_template('index.html', result=f"Eroare: {str(e)}")
+
+
+# Endpoint pentru calcul net via JSON
+@app.route('/calculate_net_salary', methods=['POST'])
+def calculate_net_salary_endpoint():
+    # Endpoint pentru calculul salariului net (JSON API)
+    try:
+        data = request.get_json()
+        gross_salary = data.get('gross_salary')
+        if not gross_salary:
+            return jsonify({"error": "Parametrul 'gross_salary' este necesar."}), 400
+
+        # Calculăm salariul net
+        net_salary, cas, cass, iv = calculate_net_salary(gross_salary)
+
+        response = {
+            "gross_salary": gross_salary,
+            "net_salary": net_salary,
+            "deductions": {
+                "CAS (25%)": cas,
+                "CASS (10%)": cass,
+                "IV (10% baza impozabilă)": iv,
+            },
+            "steps": [
+                f"Salariu brut introdus: {gross_salary:.2f} lei",
+                f"- CAS (25%): {cas:.2f} lei",
+                f"- CASS (10%): {cass:.2f} lei",
+                f"- IV (10% din baza impozabilă): {iv:.2f} lei",
+                f"Salariu net calculat: {net_salary:.2f} lei",
+            ]
+        }
+        return jsonify(response), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
+# Endpoint pentru calcul brut via JSON
+@app.route('/calculate_gross_salary', methods=['POST'])
+def calculate_gross_salary_endpoint():
+    # Endpoint pentru calculul salariului brut (JSON API)
+    try:
+        data = request.get_json()
+        net_salary = data.get('net_salary')
+        if not net_salary:
+            return jsonify({"error": "Parametrul 'net_salary' este necesar."}), 400
+
+        # Calculăm salariul brut
+        gross_salary = calculate_gross_salary(net_salary)
+
+        response = {
+            "net_salary": net_salary,
+            "gross_salary": gross_salary,
+            "steps": [
+                f"Salariu net introdus: {net_salary:.2f} lei",
+                f"Salariu brut calculat: {gross_salary:.2f} lei",
+            ]
+        }
+        return jsonify(response), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 
 if __name__ == '__main__':
