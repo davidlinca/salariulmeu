@@ -1,3 +1,5 @@
+![GitHub_readme](https://github.com/user-attachments/assets/6019ba88-16d8-4306-9e4e-969a38cd02c8)
+
 UBB-FSEGA IE - Proiect Testarea produselor software
 
 Componenta echipei:
