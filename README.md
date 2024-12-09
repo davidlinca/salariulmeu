@@ -1,3 +1,5 @@
+![GitHub_readme](https://github.com/user-attachments/assets/6019ba88-16d8-4306-9e4e-969a38cd02c8)
+
 UBB-FSEGA IE - Proiect Testarea produselor software
 
 Componenta echipei:
@@ -140,5 +142,7 @@ http://127.0.0.1:5000/calculate_net_salary
 Endpoint-urile sunt configurate doar pentru cereri POST. Dacă încercați să accesați direct din browser, veți primi acest mesaj.
 
 ## Eroare SSL (WRONG_VERSION_NUMBER):
+
+# Cauzată de utilizarea HTTPS pe serverul care rulează pe HTTP. Utilizați http:// în loc de https://.
 
 Cauzată de utilizarea HTTPS pe serverul care rulează pe HTTP. Utilizați http:// în loc de https://.
