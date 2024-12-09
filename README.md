@@ -143,6 +143,4 @@ Endpoint-urile sunt configurate doar pentru cereri POST. Dacă încercați să a
 
 ## Eroare SSL (WRONG_VERSION_NUMBER):
 
-# Cauzată de utilizarea HTTPS pe serverul care rulează pe HTTP. Utilizați http:// în loc de https://.
-
 Cauzată de utilizarea HTTPS pe serverul care rulează pe HTTP. Utilizați http:// în loc de https://.
