@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="{{ language }}">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{ translations.title }}</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+        <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+    </head>
+<body>
+    <div class="container">
+        <!-- Butoane pentru limbi -->
+        <div class="language-buttons">
+            <a href="/set_language/ro" class="btn {{ 'active' if language == 'ro' else '' }}">Română</a>
+            <a href="/set_language/en" class="btn {{ 'active' if language == 'en' else '' }}">English</a>
+            <a href="/set_language/fr" class="btn {{ 'active' if language == 'fr' else '' }}">Français</a>
+
+        </div>
+
+        <!-- Calculator Simplu -->
+        <div id="simple-calculator">
+            <h2>{{ translations.simple_calculator }}</h2>
+            <form method="POST" action="/calculate_simple">
+                <table>
+                    <tr>
+                        <td>{{ translations.enter_salary }}</td>
+                        <td><input type="number" id="salary" name="salary" required placeholder="3000"></td>
+                    </tr>
+                    <tr>
+                        <td>{{ translations.calculation_type }}</td>
+                        <td>
+                            <select id="type" name="type" required>
+                                <option value="net">{{ translations.calculate_net_salary }}</option>
+                                <option value="gross">{{ translations.calculate_gross_salary }}</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+                <button type="submit">{{ translations.calculate }}</button>
+            </form>
+            <button onclick="toggleCalculator('advanced')">{{ translations.advanced_calculator }}</button>
+        </div>
+
+        <!-- Calculator Avansat -->
+        <div id="advanced-calculator" style="display: none;">
+            <h2>{{ translations.advanced_calculator }}</h2>
+            <form method="POST" action="/calculate_advanced">
+                <table>
+                    <tr>
+                        <td>{{ translations.full_salary }}</td>
+                        <td><input type="number" id="full_salary" name="full_salary" required></td>
+                    </tr>
+                    <tr>
+                        <td>{{ translations.meal_tickets }}</td>
+                        <td><input type="number" id="meal_tickets" name="meal_tickets"></td>
+                    </tr>
+                    <tr>
+                        <td>{{ translations.ticket_value }}</td>
+                        <td><input type="number" id="ticket_value" name="ticket_value"></td>
+                    </tr>
+                    <tr>
+                        <td>{{ translations.dependents }}</td>
+                        <td><input type="number" id="dependents" name="dependents"></td>
+                    </tr>
+                    <tr>
+                        <td>{{ translations.children }}</td>
+                        <td><input type="number" id="children" name="children"></td>
+                    </tr>
+                    <tr>
+                        <td>{{ translations.tax_exempt }}</td>
+                        <td>
+                            <select id="tax_exempt" name="tax_exempt">
+                                <option value="yes">{{ translations.yes }}</option>
+                                <option value="no">{{ translations.no }}</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+                <button type="submit">{{ translations.calculate }}</button>
+            </form>
+            <button onclick="toggleCalculator('simple')">{{ translations.simple_calculator }}</button>
+        </div>
+
+        {% if result %}
+        <div class="result">
+            <h2>{{ translations.final_result }}: {{ result }} lei</h2>
+        </div>
+        {% endif %}
+
+        {% if steps %}
+        <div class="steps">
+            <h3>{{ translations.calculation_details }}:</h3>
+            <ul>
+                {% for step in steps %}
+                <li>{{ step }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
