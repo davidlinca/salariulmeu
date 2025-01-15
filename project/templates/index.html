@@ -23,6 +23,13 @@
         <ul>
           <li><a href="calculator.html">Calculator</a></li>
           <li><a href="about.html">About</a></li>
+          <form method="POST" action="/set-language" class="language-form">
+            <select name="language" onchange="this.form.submit()">
+              <option value="ro" selected>Română</option>
+              <option value="en">English</option>
+              <option value="fr">Français</option>
+            </select>
+          </form>
         </ul>
       </nav>
     </header>
