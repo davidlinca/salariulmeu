@@ -1,102 +1,76 @@
 <!DOCTYPE html>
-<html lang="{{ language }}">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{{ translations.title }}</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-        <script src="{{ url_for('static', filename='script.js') }}" defer></script>
-    </head>
-<body>
-    <div class="container">
-        <!-- Butoane pentru limbi -->
-        <div class="language-buttons">
-            <a href="/set_language/ro" class="btn {{ 'active' if language == 'ro' else '' }}">Română</a>
-            <a href="/set_language/en" class="btn {{ 'active' if language == 'en' else '' }}">English</a>
-            <a href="/set_language/fr" class="btn {{ 'active' if language == 'fr' else '' }}">Français</a>
-
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Salariul Meu</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <a href="">
+          <img
+            src="{{ url_for('static', filename='resources/logo/logov2.png') }}"
+            alt="Logo"
+          />
+        </a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="calculator.html">Calculator</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div class="main-content">
+        <div class="text-section">
+          <h1>Salariul Meu</h1>
+          <p>
+            Soluția simplă și rapidă care te ajută să înțelegi exact cum se
+            calculează salariul tău și câți bani îți rămân după taxe și
+            contribuții
+          </p>
+          <a href="/calculator" class="btn">Incearcă calculatorul</a>
         </div>
-
-        <!-- Calculator Simplu -->
-        <div id="simple-calculator">
-            <h2>{{ translations.simple_calculator }}</h2>
-            <form method="POST" action="/calculate_simple">
-                <table>
-                    <tr>
-                        <td>{{ translations.enter_salary }}</td>
-                        <td><input type="number" id="salary" name="salary" required placeholder="3000"></td>
-                    </tr>
-                    <tr>
-                        <td>{{ translations.calculation_type }}</td>
-                        <td>
-                            <select id="type" name="type" required>
-                                <option value="net">{{ translations.calculate_net_salary }}</option>
-                                <option value="gross">{{ translations.calculate_gross_salary }}</option>
-                            </select>
-                        </td>
-                    </tr>
-                </table>
-                <button type="submit">{{ translations.calculate }}</button>
-            </form>
-            <button onclick="toggleCalculator('advanced')">{{ translations.advanced_calculator }}</button>
+        <div class="image-section">
+          <img
+            src="{{ url_for('static', filename='resources/images/promo.jpg') }}"
+            alt="Salariul Meu"
+            class="main-image"
+          />
         </div>
-
-        <!-- Calculator Avansat -->
-        <div id="advanced-calculator" style="display: none;">
-            <h2>{{ translations.advanced_calculator }}</h2>
-            <form method="POST" action="/calculate_advanced">
-                <table>
-                    <tr>
-                        <td>{{ translations.full_salary }}</td>
-                        <td><input type="number" id="full_salary" name="full_salary" required></td>
-                    </tr>
-                    <tr>
-                        <td>{{ translations.meal_tickets }}</td>
-                        <td><input type="number" id="meal_tickets" name="meal_tickets"></td>
-                    </tr>
-                    <tr>
-                        <td>{{ translations.ticket_value }}</td>
-                        <td><input type="number" id="ticket_value" name="ticket_value"></td>
-                    </tr>
-                    <tr>
-                        <td>{{ translations.dependents }}</td>
-                        <td><input type="number" id="dependents" name="dependents"></td>
-                    </tr>
-                    <tr>
-                        <td>{{ translations.children }}</td>
-                        <td><input type="number" id="children" name="children"></td>
-                    </tr>
-                    <tr>
-                        <td>{{ translations.tax_exempt }}</td>
-                        <td>
-                            <select id="tax_exempt" name="tax_exempt">
-                                <option value="yes">{{ translations.yes }}</option>
-                                <option value="no">{{ translations.no }}</option>
-                            </select>
-                        </td>
-                    </tr>
-                </table>
-                <button type="submit">{{ translations.calculate }}</button>
-            </form>
-            <button onclick="toggleCalculator('simple')">{{ translations.simple_calculator }}</button>
+      </div>
+      <div class="extra-content">
+        <div class="extra-item">
+          <img
+            src="{{ url_for('static', filename='resources/logo/time-sand-svgrepo-com.svg') }}"
+            alt="Timp Salvat"
+          />
+          <p>Salvează timp cu calcule precise</p>
         </div>
-
-        {% if result %}
-        <div class="result">
-            <h2>{{ translations.final_result }}: {{ result }} lei</h2>
+        <div class="extra-item">
+          <img
+            src="{{ url_for('static', filename='resources/logo/data-svgrepo-com.svg') }}"
+            alt="Date Personalizate"
+          />
+          <p>Obține rezultate personalizate pe baza datelor tale</p>
         </div>
-        {% endif %}
-
-        {% if steps %}
-        <div class="steps">
-            <h3>{{ translations.calculation_details }}:</h3>
-            <ul>
-                {% for step in steps %}
-                <li>{{ step }}</li>
-                {% endfor %}
-            </ul>
+        <div class="extra-item">
+          <img
+            src="{{ url_for('static', filename='resources/logo/planning-svgrepo-com.svg') }}"
+            alt="Planificare"
+          />
+          <p>Planifică-ți mai bine finanțele personale</p>
         </div>
-        {% endif %}
-    </div>
-</body>
+      </div>
+    </main>
+    <footer>
+      <p>&copy; 2025 Salariul Meu. Toate drepturile rezervate.</p>
+    </footer>
+  </body>
 </html>
