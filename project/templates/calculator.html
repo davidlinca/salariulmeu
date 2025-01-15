@@ -11,8 +11,24 @@
     <script src="{{ url_for('static', filename='script.js') }}" defer></script>
   </head>
   <body>
-    <div class="container">
-      <!-- Butoane pentru limbi -->
+    <header>
+      <div class="logo">
+        <a href="/">
+          <img
+            src="{{ url_for('static', filename='resources/logo/logov2.png') }}"
+            alt="Logo"
+          />
+        </a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="/" class="btn">Home</a></li>
+          <li><a href="/about.html" class="btn">About</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="calculator-container">
       <div class="language-buttons">
         <a
           href="/set_language/ro"
@@ -31,95 +47,79 @@
         >
       </div>
 
-      <!-- Calculator Simplu -->
-      <div id="simple-calculator">
-        <h2>{{ translations.simple_calculator }}</h2>
-        <form method="POST" action="/calculate_simple">
-          <table>
-            <tr>
-              <td>{{ translations.enter_salary }}</td>
-              <td>
-                <input
-                  type="number"
-                  id="salary"
-                  name="salary"
-                  required
-                  placeholder="3000"
-                />
-              </td>
-            </tr>
-            <tr>
-              <td>{{ translations.calculation_type }}</td>
-              <td>
-                <select id="type" name="type" required>
-                  <option value="net">
-                    {{ translations.calculate_net_salary }}
-                  </option>
-                  <option value="gross">
-                    {{ translations.calculate_gross_salary }}
-                  </option>
-                </select>
-              </td>
-            </tr>
-          </table>
-          <button type="submit">{{ translations.calculate }}</button>
-        </form>
-        <button onclick="toggleCalculator('advanced')">
-          {{ translations.advanced_calculator }}
-        </button>
-      </div>
+      <div id="calculator-sections">
+        <div id="simple-calculator" class="calculator-section">
+          <h2>{{ translations.simple_calculator }}</h2>
+          <form method="POST" action="/calculate_simple">
+            <div>
+              <label for="salary">{{ translations.enter_salary }}</label>
+              <input
+                type="number"
+                id="salary"
+                name="salary"
+                required
+                placeholder="3000"
+              />
+            </div>
+            <div>
+              <label for="type">{{ translations.calculation_type }}</label>
+              <select id="type" name="type" required>
+                <option value="net">
+                  {{ translations.calculate_net_salary }}
+                </option>
+                <option value="gross">
+                  {{ translations.calculate_gross_salary }}
+                </option>
+              </select>
+            </div>
+            <button type="submit">{{ translations.calculate }}</button>
+          </form>
+          <button onclick="toggleCalculator('advanced')">
+            {{ translations.advanced_calculator }}
+          </button>
+        </div>
 
-      <!-- Calculator Avansat -->
-      <div id="advanced-calculator" style="display: none">
-        <h2>{{ translations.advanced_calculator }}</h2>
-        <form method="POST" action="/calculate_advanced">
-          <table>
-            <tr>
-              <td>{{ translations.full_salary }}</td>
-              <td>
-                <input
-                  type="number"
-                  id="full_salary"
-                  name="full_salary"
-                  required
-                />
-              </td>
-            </tr>
-            <tr>
-              <td>{{ translations.meal_tickets }}</td>
-              <td>
-                <input type="number" id="meal_tickets" name="meal_tickets" />
-              </td>
-            </tr>
-            <tr>
-              <td>{{ translations.ticket_value }}</td>
-              <td>
-                <input type="number" id="ticket_value" name="ticket_value" />
-              </td>
-            </tr>
-            <tr>
-              <td>{{ translations.dependents }}</td>
-              <td><input type="number" id="dependents" name="dependents" /></td>
-            </tr>
-            <tr>
-              <td>{{ translations.children }}</td>
-              <td><input type="number" id="children" name="children" /></td>
-            </tr>
-            <tr>
-              <td>{{ translations.tax_exempt }}</td>
-              <td>
-                <select id="tax_exempt" name="tax_exempt">
-                  <option value="yes">{{ translations.yes }}</option>
-                  <option value="no">{{ translations.no }}</option>
-                </select>
-              </td>
-            </tr>
-          </table>
-          <button type="submit">{{ translations.calculate }}</button>
-        </form>
-        <button onclick="toggleCalculator('simple')">
-          {{ translations.simple_calculator }}
-        </button>
+        <div id="advanced-calculator" class="calculator-section" style="display: none;">
+          <h2>{{ translations.advanced_calculator }}</h2>
+          <form method="POST" action="/calculate_advanced">
+            <div>
+              <label for="full_salary">{{ translations.full_salary }}</label>
+              <input
+                type="number"
+                id="full_salary"
+                name="full_salary"
+                required
+              />
+            </div>
+            <div>
+              <label for="meal_tickets">{{ translations.meal_tickets }}</label>
+              <input type="number" id="meal_tickets" name="meal_tickets" />
+            </div>
+            <div>
+              <label for="ticket_value">{{ translations.ticket_value }}</label>
+              <input type="number" id="ticket_value" name="ticket_value" />
+            </div>
+            <div>
+              <label for="dependents">{{ translations.dependents }}</label>
+              <input type="number" id="dependents" name="dependents" />
+            </div>
+            <div>
+              <label for="children">{{ translations.children }}</label>
+              <input type="number" id="children" name="children" />
+            </div>
+            <div>
+              <label for="tax_exempt">{{ translations.tax_exempt }}</label>
+              <select id="tax_exempt" name="tax_exempt">
+                <option value="yes">{{ translations.yes }}</option>
+                <option value="no">{{ translations.no }}</option>
+              </select>
+            </div>
+            <button type="submit">{{ translations.calculate }}</button>
+          </form>
+          <button onclick="toggleCalculator('simple')">
+            {{ translations.simple_calculator }}
+          </button>
+        </div>
       </div>
 
       {% if result %}
@@ -137,5 +137,10 @@
       </div>
       {% endif %}
     </div>
+
+    <footer>
+      <p>&copy; 2025 Salariul Meu. All rights reserved.</p>
+    </footer>
+    </script>
   </body>
 </html>

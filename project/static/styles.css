@@ -49,14 +49,14 @@ nav ul li {
 
 nav ul li a {
   text-decoration: none;
-  color: #16db65;
+  color: #fefefe;
   font-size: 20px;
   font-weight: bold;
   transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
-  color: #fefefe;
+  color: #16db65;
 }
 
 .language-form {
@@ -116,7 +116,7 @@ main {
 
 .text-section p {
   font-size: 1.2em;
-  color: #020202;
+  color: #5d5d5d;
   margin-bottom: 20px;
 }
 
@@ -188,13 +188,13 @@ footer {
   left: 0;
 }
 
-/* Evidențiere link activ în meniul de navigare */
 nav ul li a.active {
   color: #16db65;
   font-weight: bold;
   text-decoration: underline;
 }
 
+/* about.html */
 .about-page main {
   padding: 20px;
   display: flex;
@@ -237,4 +237,157 @@ nav ul li a.active {
 
 .about-page section ul li::marker {
   color: #16db65; /* Bulina verde */
+}
+
+/* /calculator.html */
+.calculator-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 90%;
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 100px;
+  background-color: #fefefe;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.calculator-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.language-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.language-buttons .btn {
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  background-color: #16db65;
+  color: #fefefe;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.language-buttons .btn:hover {
+  background-color: #058c42;
+}
+
+.calculator-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 20px;
+  background-color: #fefefe;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+}
+
+.calculator-section h2 {
+  font-size: 1.8em;
+  color: #16db65;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.calculator-section form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.calculator-section form div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.calculator-section form label {
+  font-size: 1em;
+  color: #020202;
+  flex-basis: 30%;
+  text-align: right;
+}
+
+.calculator-section form input,
+.calculator-section form select {
+  padding: 10px;
+  font-size: 1em;
+  border: 1px solid #16db65;
+  border-radius: 50px;
+  flex-basis: 70%;
+  box-sizing: border-box;
+}
+
+.calculator-section form button {
+  padding: 10px;
+  font-size: 1em;
+  border: none;
+  border-radius: 10px;
+  background-color: #16db65;
+  color: #fefefe;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  align-self: center;
+  width: 50%;
+}
+
+.calculator-section form button:hover {
+  background-color: #058c42;
+}
+
+.result {
+  flex: 1;
+  text-align: center;
+  padding: 20px;
+  border-radius: 50px;
+  background-color: #16db65;
+  color: #fefefe;
+  font-size: 1.5em;
+  margin-top: 10px;
+  width: 100%;
+  max-width: auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.steps {
+  flex: 1;
+  text-align: left;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #fefefe;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  color: #020202;
+  font-size: 1em;
+  margin-top: 20px;
+  max-width: 600px;
+}
+
+.steps h3 {
+  color: #16db65;
+  font-size: 1.2em;
+}
+
+.steps ul {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+.steps ul li {
+  margin-bottom: 5px;
 }
