@@ -391,3 +391,22 @@ nav ul li a.active {
 .steps ul li {
   margin-bottom: 5px;
 }
+
+button.advanced-calculator {
+  padding: 10px;
+  font-size: 1em;
+  border: none;
+  border-radius: 10px;
+  background-color: #16db65;
+  color: #fefefe;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  align-self: center;
+  width: 50%;
+  margin-top: 10px;
+}
+
+button.advanced-calculator:hover {
+  background-color: #058c42;
+}

@@ -8,6 +8,11 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='styles.css') }}"
     />
+    <link
+    rel="icon"
+    type="image/png"
+    href="{{ url_for('static', filename='resources/logo/favicon.png') }}"
+  />
     <script src="{{ url_for('static', filename='script.js') }}" defer></script>
   </head>
   <body>
@@ -74,7 +79,7 @@
             </div>
             <button type="submit">{{ translations.calculate }}</button>
           </form>
-          <button onclick="toggleCalculator('advanced')">
+          <button class="advanced-calculator" onclick="toggleCalculator('advanced')">
             {{ translations.advanced_calculator }}
           </button>
         </div>
