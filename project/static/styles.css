@@ -25,6 +25,15 @@ header {
 .logo img {
   max-width: 200px;
   height: auto;
+  transition: content 0.3s ease-in-out;
+}
+
+.logo:hover img {
+  content: url("/static/resources/logo/logov3.png");
+}
+
+.logo:active img {
+  content: url("/static/resources/logo/logov2.png");
 }
 
 nav ul {
