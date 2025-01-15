@@ -14,7 +14,7 @@ header {
   align-items: center;
   padding: 20px;
   background-color: #020202;
-  color: white;
+  color: #fefefe;
   border-radius: 50px;
   margin: 20px auto;
   width: 90%;
@@ -47,7 +47,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  color: #d4d4d4;
+  color: #fefefe;
 }
 
 main {
@@ -87,7 +87,7 @@ main {
   display: inline-block;
   padding: 10px 20px;
   background-color: #16db65;
-  color: white;
+  color: #fefefe;
   text-decoration: none;
   font-weight: bold;
   border-radius: 50px;
@@ -109,6 +109,7 @@ main {
   border-radius: 30px;
   position: relative;
   z-index: 2;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .extra-content {
@@ -140,7 +141,7 @@ footer {
   text-align: center;
   padding: 10px;
   background-color: #020202;
-  color: white;
+  color: #fefefe;
   font-size: 0.9em;
   width: 100%;
   margin-top: auto;
