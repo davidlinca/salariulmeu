@@ -20,6 +20,7 @@ header {
   width: 90%;
   max-width: auto;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  z-index: 10;
 }
 
 .logo img {
@@ -39,12 +40,10 @@ header {
 nav ul {
   list-style: none;
   display: flex;
-  margin: 0;
+  margin: 5;
   padding: 0;
-}
-
-nav ul li {
-  margin: 0 10px;
+  gap: 20px;
+  justify-content: space-between;
 }
 
 nav ul li a {
@@ -147,7 +146,7 @@ main {
   border-radius: 30px;
   position: relative;
   z-index: 2;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
 }
 
 .extra-content {
