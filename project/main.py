@@ -26,7 +26,9 @@ def set_language():
 # Ruta pentru pagina principală (index.html - landing page)
 @app.route('/')
 def index():
-    return render_template('index.html')
+    language = session.get('lang', 'ro')
+    translations = load_translations(language)
+    return render_template('index.html', translations=translations, language=language)
 
 @app.route('/calculator.html')
 def calculator():
@@ -36,13 +38,32 @@ def calculator():
 
 @app.route('/about.html')
 def about():
-    return render_template('about.html')
+    language = session.get('lang', 'ro')
+    translations = load_translations(language)
+    return render_template('about.html', translations=translations, language=language)
 
-@app.route('/set_language/<lang>')
-def set_language_route(lang):
+@app.route('/set_language', methods=['POST', 'GET'])
+def set_language_route():
+    if request.method == 'POST':
+        lang = request.form.get('language')
+        current_url = request.form.get('current_url')
+    else:
+        lang = request.args.get('lang')
+        current_url = None
+
+    if lang in ['ro', 'en', 'fr']:
+        session['lang'] = lang
+        print(f"Limba actualizată la: {session['lang']}")  # Debugging
+
+    return redirect(current_url or request.referrer or url_for('index'))
+
+@app.route('/set_language/<lang>', methods=['GET'])
+def set_language_with_url(lang):
     if lang in ['ro', 'en', 'fr']:
         session['lang'] = lang  # Actualizează limba selectată
-    return redirect(url_for('calculator'))
+        print(f"Limba actualizată la: {session['lang']}")  # Debugging
+    return redirect(request.referrer or url_for('index'))
+
 
 # Endpoint pentru calculatorul simplu (HTML)
 @app.route('/calculate_simple', methods=['POST'])

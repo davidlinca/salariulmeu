@@ -26,5 +26,23 @@
     "full_salary": "Salariu complet",
     "dependents_deduction": "Deduceri pentru persoane în întreținere",
     "child_deduction": "Deduceri pentru copii",
-    "total_deductions": "Total deduceri"
+    "total_deductions": "Total deduceri",
+    "main_title": "Salariul Meu",
+    "main_description": "Soluția simplă și rapidă care te ajută să înțelegi exact cum se calculează salariul tău și câți bani îți rămân după taxe și contribuții.",
+    "try_calculator": "Încearcă calculatorul",
+    "save_time": "Salvează timp cu calcule precise",
+    "personalized_results": "Obține rezultate personalizate pe baza datelor tale",
+    "better_planning": "Planifică-ți mai bine finanțele personale",
+    "about_title": "Despre Noi",
+    "about_heading": "Despre acest proiect",
+    "about_description": "Salariul Meu este o aplicație care te ajută să calculezi salariul net și brut...",
+    "team_composition": "Componența echipei",
+    "team_member_1": "Linca David-Alexandru - Team Manager & Front End Developer",
+    "team_member_2": "Mare Bogdan-Rares - Back End Developer",
+    "team_member_3": "Kish Andrei-Cezar - Back End Developer",
+    "team_member_4": "Lazaroiu Robert-Codrut - Software Tester",
+    "footer_text": "Salariul Meu. Toate drepturile rezervate.",
+    "home": "Acasa",
+    "about": "Despre noi"
+    
 }

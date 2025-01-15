@@ -1,64 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ language }}">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About</title>
-    <link rel="stylesheet" href="/static/styles.css" />
-    <link
-    rel="icon"
-    type="image/png"
-    href="{{ url_for('static', filename='resources/logo/favicon.png') }}"
-  />
+    <title>{{ translations['about_title'] }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='resources/logo/favicon.png') }}" />
   </head>
   <body class="about-page">
     <header>
       <div class="logo">
         <a href="/">
-        <img src="/static/resources/logo/logov2.png" alt="Logo" />
-      </a>
+          <img src="{{ url_for('static', filename='resources/logo/logov2.png') }}" alt="Logo" />
+        </a>
       </div>
       <nav>
         <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/calculator.html">Calculator</a></li>
-          <div class="language-selector">
-            <form method="POST" action="/set-language" class="language-form">
-              <select name="language" onchange="this.form.submit()">
-                <option value="ro" selected>Română</option>
-                <option value="en">English</option>
-                <option value="fr">Français</option>
-              </select>
-            </form>
+          <li><a href="/">{{ translations['home'] }}</a></li>
+          <li><a href="/calculator.html">{{ translations['calculator'] }}</a></li>
+          <form method="POST" action="/set_language" class="language-form">
+            <select name="language" onchange="this.form.submit()">
+              <option value="ro" {% if session['lang'] == 'ro' %}selected{% endif %}>Română</option>
+              <option value="en" {% if session['lang'] == 'en' %}selected{% endif %}>English</option>
+              <option value="fr" {% if session['lang'] == 'fr' %}selected{% endif %}>Français</option>
+            </select>
+          </form>
         </ul>
       </nav>
-      </div>
     </header>
-
     <main>
       <section>
-        <h1>About this project</h1>
+        <h1>{{ translations['about_heading'] }}</h1>
+        <p>{{ translations['about_description'] }}</p>
         <p>
-          Salariul Meu este o aplicație care te ajută să calculezi salariul net și brut,
-          oferind transparență completă asupra contribuțiilor și impozitelor. Cu ajutorul
-          său, utilizatorii pot înțelege mai bine unde se duc banii lor și pot planifica
-          mai eficient finanțele personale.
-        </p>
-        <p>
-          <strong>Componența echipei</strong>
+          <strong>{{ translations['team_composition'] }}</strong>
           <ul>
-            <li>Linca David-Alexandru - Team Manager & Front End Developer</li>
-            <li>Mare Bogdan-Rares - Back End Developer</li>
-            <li>Kish Andrei-Cezar - Back End Developer</li>
-            <li>Lazaroiu Robert-Codrut - Software Tester</li>
+            <li>{{ translations['team_member_1'] }}</li>
+            <li>{{ translations['team_member_2'] }}</li>
+            <li>{{ translations['team_member_3'] }}</li>
+            <li>{{ translations['team_member_4'] }}</li>
           </ul>
         </p>
       </section>
     </main>
-
-    <!-- Footer reutilizat din index.html -->
     <footer>
-      <p>&copy; 2025 Salariul Meu. All rights reserved.</p>
+      <p>&copy; 2025 {{ translations['footer_text'] }}</p>
     </footer>
   </body>
 </html>

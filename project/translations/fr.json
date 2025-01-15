@@ -26,5 +26,22 @@
     "full_salary": "Salaire complet",
     "dependents_deduction": "Déductions pour personnes à charge",
     "child_deduction": "Déductions pour enfants",
-    "total_deductions": "Total des déductions"
+    "total_deductions": "Total des déductions",
+    "main_title": "Mon Salaire",
+    "main_description": "La solution simple et rapide qui vous aide à comprendre exactement comment votre salaire est calculé et combien d'argent vous reste après les impôts et les cotisations.",
+    "try_calculator": "Essayez le calculateur",
+    "save_time": "Gagnez du temps avec des calculs précis",
+    "personalized_results": "Obtenez des résultats personnalisés basés sur vos données",
+    "better_planning": "Planifiez mieux vos finances",
+    "about_title": "À Propos de Nous",
+    "about_heading": "À propos de ce projet",
+    "about_description": "Mon Salaire est une application qui vous aide à calculer votre salaire net et brut...",
+    "team_composition": "Composition de l'équipe",
+    "team_member_1": "Linca David-Alexandru - Chef d'équipe & Développeur Front End",
+    "team_member_2": "Mare Bogdan-Rares - Développeur Back End",
+    "team_member_3": "Kish Andrei-Cezar - Développeur Back End",
+    "team_member_4": "Lazaroiu Robert-Codrut - Testeur Logiciel",
+    "footer_text": "Mon Salaire. Tous droits réservés.",
+    "home": "Maison",
+    "about": "À propos de Nous"
 }

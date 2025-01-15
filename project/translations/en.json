@@ -26,5 +26,22 @@
     "full_salary": "Full salary",
     "dependents_deduction": "Deductions for dependents",
     "child_deduction": "Deductions for children",
-    "total_deductions": "Total deductions"
+    "total_deductions": "Total deductions",
+    "main_title": "My Salary",
+    "main_description": "The simple and quick solution that helps you understand exactly how your salary is calculated and how much money remains after taxes and contributions.",
+    "try_calculator": "Try the calculator",
+    "save_time": "Save time with accurate calculations",
+    "personalized_results": "Get personalized results based on your data",
+    "better_planning": "Plan your finances better",
+    "about_title": "About Us",
+    "about_heading": "About this project",
+    "about_description": "My Salary is an app that helps you calculate your net and gross salary...",
+    "team_composition": "Team Composition",
+    "team_member_1": "Linca David-Alexandru - Team Manager & Front End Developer",
+    "team_member_2": "Mare Bogdan-Rares - Back End Developer",
+    "team_member_3": "Kish Andrei-Cezar - Back End Developer",
+    "team_member_4": "Lazaroiu Robert-Codrut - Software Tester",
+    "footer_text": "My Salary. All rights reserved.",
+    "home": "Home",
+    "about": "About us"
 }

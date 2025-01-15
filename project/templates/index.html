@@ -1,88 +1,63 @@
 <!DOCTYPE html>
-<html lang="ro">
+<html lang="{{ language }}">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Salariul Meu</title>
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='styles.css') }}"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      href="{{ url_for('static', filename='resources/logo/favicon.png') }}"
-    />
+    <title>{{ translations['title'] }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='resources/logo/favicon.png') }}" />
   </head>
   <body>
     <header>
       <div class="logo">
-        <a href="">
-          <img
-            src="{{ url_for('static', filename='resources/logo/logov2.png') }}"
-            alt="Logo"
-          />
+        <a href="/">
+          <img src="{{ url_for('static', filename='resources/logo/logov2.png') }}" alt="Logo" />
         </a>
       </div>
       <nav>
         <ul>
-          <li><a href="calculator.html">Calculator</a></li>
-          <li><a href="about.html">About</a></li>
-          <form method="POST" action="/set-language" class="language-form">
-            <select name="language" onchange="this.form.submit()">
-              <option value="ro" selected>Română</option>
-              <option value="en">English</option>
-              <option value="fr">Français</option>
-            </select>
-          </form>
+          <li><a href="/">{{ translations['home'] }}</a></li>
+          <li><a href="/calculator.html">{{ translations['calculator'] }}</a></li>
+          <li><a href="/about.html">{{ translations['about'] }}</a></li>
         </ul>
+        <form method="POST" action="/set_language" class="language-form">
+          <input type="hidden" name="current_url" value="{{ request.path }}">
+          <select name="language" onchange="this.form.submit()">
+            <option value="ro" {% if session['lang'] == 'ro' %}selected{% endif %}>Română</option>
+            <option value="en" {% if session['lang'] == 'en' %}selected{% endif %}>English</option>
+            <option value="fr" {% if session['lang'] == 'fr' %}selected{% endif %}>Français</option>
+          </select>
+        </form>
       </nav>
     </header>
     <main>
       <div class="main-content">
         <div class="text-section">
-          <h1>Salariul Meu</h1>
-          <p>
-            Soluția simplă și rapidă care te ajută să înțelegi exact cum se
-            calculează salariul tău și câți bani îți rămân după taxe și
-            contribuții
-          </p>
-          <a href="calculator.html" class="btn">Incearcă calculatorul</a>
+          <h1>{{ translations['main_title'] }}</h1>
+          <p>{{ translations['main_description'] }}</p>
+          <a href="/calculator.html" class="btn">{{ translations['try_calculator'] }}</a>
         </div>
         <div class="image-section">
-          <img
-            src="{{ url_for('static', filename='resources/images/promo.jpg') }}"
-            alt="Salariul Meu"
-            class="main-image"
-          />
+          <img src="{{ url_for('static', filename='resources/images/promo.jpg') }}" alt="{{ translations['main_title'] }}" class="main-image" />
         </div>
       </div>
       <div class="extra-content">
         <div class="extra-item">
-          <img
-            src="{{ url_for('static', filename='resources/logo/time-sand-svgrepo-com.svg') }}"
-            alt="Timp Salvat"
-          />
-          <p>Salvează timp cu calcule precise</p>
+          <img src="{{ url_for('static', filename='resources/logo/time-sand-svgrepo-com.svg') }}" alt="{{ translations['save_time'] }}" />
+          <p>{{ translations['save_time'] }}</p>
         </div>
         <div class="extra-item">
-          <img
-            src="{{ url_for('static', filename='resources/logo/data-svgrepo-com.svg') }}"
-            alt="Date Personalizate"
-          />
-          <p>Obține rezultate personalizate pe baza datelor tale</p>
+          <img src="{{ url_for('static', filename='resources/logo/data-svgrepo-com.svg') }}" alt="{{ translations['personalized_results'] }}" />
+          <p>{{ translations['personalized_results'] }}</p>
         </div>
         <div class="extra-item">
-          <img
-            src="{{ url_for('static', filename='resources/logo/planning-svgrepo-com.svg') }}"
-            alt="Planificare"
-          />
-          <p>Planifică-ți mai bine finanțele personale</p>
+          <img src="{{ url_for('static', filename='resources/logo/planning-svgrepo-com.svg') }}" alt="{{ translations['better_planning'] }}" />
+          <p>{{ translations['better_planning'] }}</p>
         </div>
       </div>
     </main>
     <footer>
-      <p>&copy; 2025 Salariul Meu. Toate drepturile rezervate.</p>
+      <p>&copy; 2025 {{ translations['footer_text'] }}</p>
     </footer>
   </body>
 </html>
