@@ -19,15 +19,15 @@
           <li><a href="/">{{ translations['home'] }}</a></li>
           <li><a href="/calculator.html">{{ translations['calculator'] }}</a></li>
           <li><a href="/about.html">{{ translations['about'] }}</a></li>
+          <form method="POST" action="/set_language" class="language-form">
+            <input type="hidden" name="current_url" value="{{ request.path }}">
+            <select name="language" onchange="this.form.submit()">
+              <option value="ro" {% if session['lang'] == 'ro' %}selected{% endif %}>Română</option>
+              <option value="en" {% if session['lang'] == 'en' %}selected{% endif %}>English</option>
+              <option value="fr" {% if session['lang'] == 'fr' %}selected{% endif %}>Français</option>
+            </select>
+          </form>
         </ul>
-        <form method="POST" action="/set_language" class="language-form">
-          <input type="hidden" name="current_url" value="{{ request.path }}">
-          <select name="language" onchange="this.form.submit()">
-            <option value="ro" {% if session['lang'] == 'ro' %}selected{% endif %}>Română</option>
-            <option value="en" {% if session['lang'] == 'en' %}selected{% endif %}>English</option>
-            <option value="fr" {% if session['lang'] == 'fr' %}selected{% endif %}>Français</option>
-          </select>
-        </form>
       </nav>
     </header>
     <main>
