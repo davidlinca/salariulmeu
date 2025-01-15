@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About - Salariul Meu</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body class="about-page">
+    <header>
+      <div class="logo">
+        <a href="/">
+        <img src="/static/resources/logo/logov2.png" alt="Logo" />
+      </a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/calculator.html">Calculator</a></li>
+          <div class="language-selector">
+            <form method="POST" action="/set-language" class="language-form">
+              <select name="language" onchange="this.form.submit()">
+                <option value="ro" selected>Română</option>
+                <option value="en">English</option>
+                <option value="fr">Français</option>
+              </select>
+            </form>
+        </ul>
+      </nav>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <h1>About this project</h1>
+        <p>
+          Salariul Meu este o aplicație care te ajută să calculezi salariul net și brut,
+          oferind transparență completă asupra contribuțiilor și impozitelor. Cu ajutorul
+          său, utilizatorii pot înțelege mai bine unde se duc banii lor și pot planifica
+          mai eficient finanțele personale.
+        </p>
+        <p>
+          <strong>Componența echipei</strong>
+          <ul>
+            <li>Linca David-Alexandru - Team Manager & Front End Developer</li>
+            <li>Mare Bogdan-Rares - Back End Developer</li>
+            <li>Kish Andrei-Cezar - Back End Developer</li>
+            <li>Lazaroiu Robert-Codrut - Software Tester</li>
+          </ul>
+        </p>
+      </section>
+    </main>
+
+    <!-- Footer reutilizat din index.html -->
+    <footer>
+      <p>&copy; 2025 Salariul Meu. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

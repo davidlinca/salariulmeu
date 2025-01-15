@@ -23,17 +23,26 @@ def set_language():
     elif session['lang'] not in ['ro', 'en', 'fr']:
         session['lang'] = 'ro'  # Fallback in caz de limba invalida
 
+# Ruta pentru pagina principală (index.html - landing page)
 @app.route('/')
 def index():
+    return render_template('index.html')
+
+@app.route('/calculator.html')
+def calculator():
     language = session['lang']
     translations = load_translations(language)
-    return render_template('index.html', translations=translations, language=language)
+    return render_template('calculator.html', translations=translations, language=language)
+
+@app.route('/about.html')
+def about():
+    return render_template('about.html')
 
 @app.route('/set_language/<lang>')
 def set_language_route(lang):
     if lang in ['ro', 'en', 'fr']:
         session['lang'] = lang  # Actualizează limba selectată
-    return redirect(url_for('index'))
+    return redirect(url_for('calculator'))
 
 # Endpoint pentru calculatorul simplu (HTML)
 @app.route('/calculate_simple', methods=['POST'])
@@ -60,11 +69,11 @@ def calculate_simple():
         else:
             raise ValueError(translations['invalid_calculation'])
 
-        return render_template('index.html', result=f"{result:.2f}", steps=steps, translations=translations, language=language)
+        return render_template('calculator.html', result=f"{result:.2f}", steps=steps, translations=translations, language=language)
     except Exception as e:
         language = session['lang']
         translations = load_translations(language)
-        return render_template('index.html', result=f"Eroare: {str(e)}", translations=translations, language=language)
+        return render_template('calculator.html', result=f"Eroare: {str(e)}", translations=translations, language=language)
 
 # Endpoint pentru calculatorul avansat (HTML)
 @app.route('/calculate_advanced', methods=['POST'])
@@ -95,11 +104,11 @@ def calculate_advanced():
         net_salary = full_salary - deductions
         steps.append(f"{translations['net_salary_calculated']}: {net_salary:.2f} lei")
 
-        return render_template('index.html', result=f"{net_salary:.2f}", steps=steps, translations=translations, language=language)
+        return render_template('calculator.html', result=f"{net_salary:.2f}", steps=steps, translations=translations, language=language)
     except Exception as e:
         language = session['lang']
         translations = load_translations(language)
-        return render_template('index.html', result=f"Eroare: {str(e)}", translations=translations, language=language)
+        return render_template('calculator.html', result=f"Eroare: {str(e)}", translations=translations, language=language)
 
 # Endpoint pentru calcul net via JSON
 @app.route('/calculate_net_salary', methods=['POST'])
