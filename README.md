@@ -3,10 +3,10 @@
 UBB-FSEGA IE - Proiect Testarea produselor software
 
 Componenta echipei:
-Linca David-Alexandru (Project Manager)
-Mare Bogdan-Rareș (Programator)
-Kish Andrei-Cezar (Programator)
-Lăzăroiu Robert-Codruț (Tester)
+Linca David-Alexandru (Project Manager & Front End Developer)
+Mare Bogdan-Rareș (Back End Developer)
+Kish Andrei-Cezar (Back End Developer)
+Lăzăroiu Robert-Codruț (Software Tester)
 
 # Salary Calculator
 
